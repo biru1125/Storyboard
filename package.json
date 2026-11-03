@@ -1,0 +1,82 @@
+{
+  "name": "storyboard",
+  "productName": "스토리보드",
+  "version": "1.0.0",
+  "description": "Storyboard (스토리보드) — 컷·카메라 워킹·레퍼런스를 정리하는 콘티 앱",
+  "main": "main.js",
+  "scripts": {
+    "build:html": "node scripts/build-html.js",
+    "start": "npm run build:html && electron .",
+    "dist:win": "npm run build:html && electron-builder --win --publish never",
+    "dist:mac": "npm run build:html && electron-builder --mac --publish never"
+  },
+  "build": {
+    "appId": "com.studiorobo.storyboard",
+    "productName": "스토리보드",
+    "artifactName": "Storyboard-${version}-${os}-${arch}.${ext}",
+    "files": [
+      "main.js",
+      "preload.js",
+      "app/index.html",
+      "app/data/refs.json",
+      "app/data/taxonomy.json",
+      "app/data/ref/**",
+      "app/cam/**",
+      "package.json"
+    ],
+    "fileAssociations": [
+      {
+        "ext": "conti",
+        "name": "스토리보드 프로젝트 (예전 형식)",
+        "role": "Editor"
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "artifactName": "Storyboard-Setup-${version}.${ext}"
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "universal"
+          ]
+        }
+      ],
+      "category": "public.app-category.productivity",
+      "identity": null,
+      "artifactName": "Storyboard-${version}-mac.${ext}"
+    },
+    "portable": {
+      "artifactName": "Storyboard-Portable-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "electron": "^33.2.1",
+    "electron-builder": "^25.1.8"
+  },
+  "dependencies": {
+    "exceljs": "^4.4.0"
+  },
+  "allowScripts": {
+    "electron@33.4.11": true
+  }
+}

@@ -1,0 +1,122 @@
+/* 카메라 그림 */
+.vz{display:block;width:100%;height:auto;aspect-ratio:9/16;border-radius:5px;overflow:hidden}
+.vz .frm{fill:var(--vz-sky)} .vz .edge{fill:none;stroke:var(--line);stroke-width:1}
+.vz .sky{fill:var(--vz-sky)} .vz .sky2{fill:var(--vz-sky2)} .vz .ground{fill:var(--vz-ground)} .vz .hor{stroke:var(--vz-line);stroke-width:1}
+.vz .bld rect{fill:var(--vz-bld)} .vz .win rect,.vz .win2 rect{fill:var(--vz-win)} .vz .bldf{fill:var(--vz-bld)}
+.vz .limb{stroke:var(--sh);stroke-linecap:round;fill:none}
+.vz .ink{fill:var(--vz-ink)} .vz .ink-l{stroke:var(--vz-ink);stroke-width:1.1;stroke-linecap:round;fill:none}
+.vz .hair{fill:var(--vz-hair)} .vz .hair-l{stroke:var(--vz-hair);stroke-width:2;fill:none} .vz .ear{fill:var(--vz-fig2)}
+.vz .dark{fill:var(--vz-dark)} .vz .soft{filter:blur(2.5px)} .vz .acc{fill:var(--accent)}
+.vz .camb{fill:var(--vz-cam)} .vz .beam{fill:var(--accent);opacity:.16} .vz .sight{stroke:var(--accent);stroke-width:1.2;stroke-dasharray:3 2}
+.vz .guide,.vz .guide line{stroke:var(--accent);stroke-width:.6;opacity:.7;stroke-dasharray:2 2}
+.vz .plate{fill:var(--vz-win)} .vz .glass{fill:var(--vz-win)} .vz .sign{font:700 8px var(--f-ui);fill:#fff}
+.vz .mirror{fill:var(--vz-sky2);stroke:var(--vz-cam);stroke-width:2}
+.vz .lightbox{fill:#FFF3D6} .vz .silh .body{fill:#111} .vz .silh .limb{stroke:#111} .vz .silh .ink,.vz .silh .ink-l{display:none}
+.vz .edge2{fill:var(--surface)}
+.vz .lab rect{fill:rgba(0,0,0,.6)} .vz .lab text{font:600 6.2px var(--f-ui);fill:#fff}
+.vz .vig{fill:#000;opacity:.85} .vz .tsb{fill:var(--vz-sky);opacity:.0}
+.vz.l-tilt .bgw{filter:blur(0)} .vz.l-tilt{position:relative}
+.vz.l-shallow .bgw,.vz.l-tele .bgw{filter:blur(2.2px)} .vz.l-tele .bgw g{transform-box:view-box}
+.vz.l-glow .cam{filter:brightness(1.12) saturate(.85)} .vz .bloom{fill:#fff;opacity:.28}
+.vz.l-back .bgw{filter:brightness(1.9)} .vz.l-back .fgw .body{fill:#1d2125} .vz.l-back .fgw .limb{stroke:#1d2125} .vz.l-back .fgw .ink,.vz.l-back .fgw .ink-l{opacity:0}
+.vz.l-mblur .fgw{filter:blur(1.4px)} .vz.l-mblur .fgw{transform:translateX(-3px)}
+.vz.l-fish .cam{transform-box:view-box;transform-origin:45px 80px;transform:scale(1.15,1.05)}
+.vz.l-wide .bgw,.vz.l-uwide .bgw{transform-box:view-box;transform-origin:45px 80px;transform:scale(.8)}
+.vz .flare circle{fill:#FFE9A8;opacity:.75} .vz .flare line{stroke:#FFE9A8;stroke-width:3;opacity:.6}
+.vz .flash{fill:#fff;opacity:0}
+
+/* 움직임: GIF처럼 반복 재생 */
+.mv .cam,.mv .bgw,.mv .fgw,.mv .near,.mv .far,.mv .eyes,.mv .flash,.mv .m-topspin{transform-box:view-box;transform-origin:45px 80px}
+.mv .cam,.mv .bgw,.mv .fgw,.mv .eyes,.mv .near,.mv .far,.mv .flash,.m-topspin{animation-duration:3.2s;animation-iteration-count:infinite;animation-timing-function:ease-in-out}
+@keyframes k-walk{0%,10%{transform:translateX(-18px)}50%,60%{transform:translateX(18px)}100%{transform:translateX(-18px)}}
+@keyframes k-panl{0%,12%{transform:translateX(-30px)}72%,88%{transform:translateX(30px)}100%{transform:translateX(-30px)}}
+@keyframes k-panr{0%,12%{transform:translateX(30px)}72%,88%{transform:translateX(-30px)}100%{transform:translateX(30px)}}
+.m-panl .cam{animation-name:k-panl} .m-panr .cam{animation-name:k-panr}
+@keyframes k-trl-f{0%,12%{transform:translateX(-36px)}72%,88%{transform:translateX(36px)}100%{transform:translateX(-36px)}}
+@keyframes k-trl-b{0%,12%{transform:translateX(-14px)}72%,88%{transform:translateX(14px)}100%{transform:translateX(-14px)}}
+.m-truckl .fgw{animation-name:k-trl-f} .m-truckl .bgw{animation-name:k-trl-b}
+.m-truckr .fgw{animation-name:k-trl-f;animation-direction:reverse} .m-truckr .bgw{animation-name:k-trl-b;animation-direction:reverse}
+@keyframes k-tiltu{0%,12%{transform:translateY(0)}72%,88%{transform:translateY(200px)}100%{transform:translateY(0)}}
+@keyframes k-tiltd{0%,12%{transform:translateY(0)}72%,88%{transform:translateY(-200px)}100%{transform:translateY(0)}}
+.m-tiltu .cam{animation-name:k-tiltu;animation-duration:3.6s} .m-tiltd .cam{animation-name:k-tiltd;animation-duration:3.6s}
+.m-tiltu .bgw,.m-tiltd .bgw{transform:none}
+@keyframes k-pedu-b{0%,12%{transform:translateY(0)}72%,88%{transform:translateY(110px)}100%{transform:translateY(0)}}
+@keyframes k-pedd-b{0%,12%{transform:translateY(0)}72%,88%{transform:translateY(-110px)}100%{transform:translateY(0)}}
+.m-pedu .fgw{animation-name:k-tiltu;animation-duration:3.6s} .m-pedu .bgw{animation-name:k-pedu-b;animation-duration:3.6s}
+.m-pedd .fgw{animation-name:k-tiltd;animation-duration:3.6s} .m-pedd .bgw{animation-name:k-pedd-b;animation-duration:3.6s}
+@keyframes k-whip{0%,30%{transform:translateX(0);filter:blur(0)}40%{filter:blur(3px)}48%,80%{transform:translateX(-150px);filter:blur(0)}90%{filter:blur(3px)}100%{transform:translateX(0);filter:blur(0)}}
+.m-whip .cam{animation-name:k-whip;animation-timing-function:cubic-bezier(.7,0,.3,1)}
+@keyframes k-dolly-f{0%,12%{transform:scale(1)}72%,88%{transform:scale(1.9)}100%{transform:scale(1)}}
+@keyframes k-dolly-b{0%,12%{transform:scale(1)}72%,88%{transform:scale(1.25)}100%{transform:scale(1)}}
+.m-dollyin .fgw{animation-name:k-dolly-f} .m-dollyin .bgw{animation-name:k-dolly-b}
+.m-dollyout .fgw{animation-name:k-dolly-f;animation-direction:reverse} .m-dollyout .bgw{animation-name:k-dolly-b;animation-direction:reverse}
+.m-dollyin .fgw,.m-dollyout .fgw,.m-dollyin .bgw,.m-dollyout .bgw{transform-origin:45px 40px}
+@keyframes k-push-f{0%{transform:scale(1)}85%,100%{transform:scale(1.3)}}
+@keyframes k-push-b{0%{transform:scale(1)}85%,100%{transform:scale(1.08)}}
+.m-push .fgw{animation-name:k-push-f;animation-duration:5s;animation-timing-function:linear;transform-origin:45px 30px} .m-push .bgw{animation-name:k-push-b;animation-duration:5s;animation-timing-function:linear;transform-origin:45px 30px}
+@keyframes k-zoom{0%,12%{transform:scale(1)}72%,88%{transform:scale(1.9)}100%{transform:scale(1)}}
+.m-zoomin .cam{animation-name:k-zoom;transform-origin:45px 40px} .m-zoomout .cam{animation-name:k-zoom;animation-direction:reverse;transform-origin:45px 40px}
+@keyframes k-crash{0%,30%{transform:scale(1)}36%,85%{transform:scale(3)}100%{transform:scale(1)}}
+.m-crash .cam{animation-name:k-crash;transform-origin:45px 22px;animation-timing-function:cubic-bezier(.8,0,.2,1)}
+@keyframes k-snap{0%,30%{transform:scale(1)}31%,60%{transform:scale(1.7)}61%,88%{transform:scale(2.6)}100%{transform:scale(1)}}
+.m-snap .cam{animation-name:k-snap;transform-origin:45px 22px;animation-timing-function:step-end}
+@keyframes k-vert{0%,12%{transform:scale(1)}72%,88%{transform:scale(2.1)}100%{transform:scale(1)}}
+.m-vertigo .bgw{animation-name:k-vert;transform-origin:45px 50px}
+@keyframes k-arc-b{0%,12%{transform:translateX(30px)}72%,88%{transform:translateX(-30px)}100%{transform:translateX(30px)}}
+@keyframes k-arc-e{0%,12%{transform:translateX(-4px)}72%,88%{transform:translateX(4px)}100%{transform:translateX(-4px)}}
+.m-arc .bgw{animation-name:k-arc-b} .m-arc .eyes{animation-name:k-arc-e}
+@keyframes k-orb-b{0%{transform:translateX(60px)}100%{transform:translateX(-60px)}}
+@keyframes k-orb-e{0%{transform:translateX(-7px);opacity:1}24%{transform:translateX(7px);opacity:1}25%,74%{opacity:0}75%{transform:translateX(-7px);opacity:1}100%{transform:translateX(-7px);opacity:1}}
+.m-orbit .bgw{animation-name:k-orb-b;animation-timing-function:linear;animation-duration:2.4s} .m-orbit .eyes{animation-name:k-orb-e;animation-timing-function:linear;animation-duration:4.8s}
+@keyframes k-bob{0%,100%{transform:translateY(0)}25%{transform:translateY(-2px)}50%{transform:translateY(0)}75%{transform:translateY(-2px)}}
+@keyframes k-fwd{0%{transform:scale(1)}100%{transform:scale(1.5)}}
+@keyframes k-back{0%{transform:scale(1.5)}100%{transform:scale(1)}}
+.m-follow .bgw{animation-name:k-fwd;animation-timing-function:linear;transform-origin:45px 60px} .m-follow .fgw{animation-name:k-bob;animation-duration:.8s}
+.m-lead .bgw{animation-name:k-back;animation-timing-function:linear;transform-origin:45px 60px} .m-lead .fgw{animation-name:k-bob;animation-duration:.8s}
+@keyframes k-side{0%{transform:translateX(60px)}100%{transform:translateX(-60px)}}
+.m-side .bgw{animation-name:k-side;animation-timing-function:linear;animation-duration:1.6s} .m-side .fgw{animation-name:k-bob;animation-duration:.6s}
+@keyframes k-hand{0%{transform:translate(0,0) rotate(0)}20%{transform:translate(1.5px,-1px) rotate(.6deg)}40%{transform:translate(-1px,1.5px) rotate(-.4deg)}60%{transform:translate(1px,1px) rotate(.3deg)}80%{transform:translate(-1.5px,-.5px) rotate(-.6deg)}100%{transform:translate(0,0) rotate(0)}}
+.m-hand .cam{animation-name:k-hand;animation-duration:1.4s;animation-timing-function:linear}
+@keyframes k-shake{0%,40%{transform:translate(0,0)}42%{transform:translate(5px,-3px) rotate(2deg)}44%{transform:translate(-5px,3px) rotate(-2deg)}46%{transform:translate(4px,2px)}48%{transform:translate(-3px,-2px)}50%{transform:translate(2px,1px)}52%,100%{transform:translate(0,0)}}
+.m-shake .cam{animation-name:k-shake;animation-duration:2s;animation-timing-function:linear}
+@keyframes k-steadi{0%,100%{transform:translate(-6px,0) scale(1)}50%{transform:translate(6px,-3px) scale(1.06)}}
+.m-steadi .cam{animation-name:k-steadi;animation-duration:4s}
+@keyframes k-crane-f{0%,12%{transform:translateY(0) scale(1)}72%,88%{transform:translateY(30px) scale(.5)}100%{transform:translateY(0) scale(1)}}
+@keyframes k-crane-b{0%,12%{transform:translateY(0) scale(1)}72%,88%{transform:translateY(40px) scale(.75)}100%{transform:translateY(0) scale(1)}}
+.m-craneu .fgw{animation-name:k-crane-f;transform-origin:45px 150px} .m-craneu .bgw{animation-name:k-crane-b;transform-origin:45px 150px}
+.m-craned .fgw{animation-name:k-crane-f;animation-direction:reverse;transform-origin:45px 150px} .m-craned .bgw{animation-name:k-crane-b;animation-direction:reverse;transform-origin:45px 150px}
+@keyframes k-drone-f{0%,12%{transform:scale(1)}72%,88%{transform:scale(.3)}100%{transform:scale(1)}}
+@keyframes k-drone-b{0%,12%{transform:scale(1)}72%,88%{transform:scale(.45)}100%{transform:scale(1)}}
+.m-droneu .fgw{animation-name:k-drone-f;transform-origin:45px 150px;animation-duration:4s} .m-droneu .bgw{animation-name:k-drone-b;transform-origin:45px 150px;animation-duration:4s}
+.m-droned .fgw{animation-name:k-drone-f;animation-direction:reverse;transform-origin:45px 150px;animation-duration:4s} .m-droned .bgw{animation-name:k-drone-b;animation-direction:reverse;transform-origin:45px 150px;animation-duration:4s}
+@keyframes k-pull{0%,15%{transform:scale(3.4)}75%,90%{transform:scale(1)}100%{transform:scale(3.4)}}
+.m-pull .cam{animation-name:k-pull;transform-origin:45px 52px;animation-duration:4s}
+@keyframes k-blur-a{0%,40%{filter:blur(0)}55%,90%{filter:blur(3px)}100%{filter:blur(0)}}
+@keyframes k-blur-b{0%,40%{filter:blur(3px)}55%,90%{filter:blur(0)}100%{filter:blur(3px)}}
+.m-rack .far{animation-name:k-blur-b} .m-rack .near{animation-name:k-blur-a}
+@keyframes k-roll{0%{transform:rotate(0) scale(1.2)}100%{transform:rotate(360deg) scale(1.2)}}
+.m-roll .cam{animation-name:k-roll;animation-duration:5s;animation-timing-function:linear}
+@keyframes k-spin{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
+.m-topspin{animation-name:k-spin;animation-duration:6s;animation-timing-function:linear;transform-box:view-box;transform-origin:45px 80px}
+@keyframes k-frz{0%{transform:translateX(-20px);filter:none}45%{transform:translateX(8px);filter:none}46%,92%{transform:translateX(8px);filter:grayscale(1) contrast(1.2)}100%{transform:translateX(-20px)}}
+@keyframes k-flash{0%,44%{opacity:0}46%{opacity:.8}52%,100%{opacity:0}}
+.m-freeze .fgw{animation-name:k-frz;animation-timing-function:linear} .m-freeze .flash{animation-name:k-flash;animation-timing-function:linear}
+.m-slow .fgw{animation-name:k-walk;animation-duration:9s;animation-timing-function:linear}
+@keyframes k-ramp{0%{transform:translateX(-30px)}20%{transform:translateX(18px)}75%{transform:translateX(24px)}100%{transform:translateX(-30px)}}
+.m-ramp .fgw{animation-name:k-ramp;animation-duration:3.4s;animation-timing-function:linear}
+@media (prefers-reduced-motion:reduce){.mv *,.m-topspin{animation:none!important}}
+.vz .sclera{fill:#F4F1EC} .vz .iris{fill:#6B4A2E} .vz .brow{stroke:var(--vz-hair);stroke-width:5;fill:none;stroke-linecap:round} .vz .lid{stroke:var(--vz-ink);stroke-width:2;fill:none}
+/* 인물 옷 색 */
+.vz{--sk:#F1C7A1;--sh:#D9534A;--pa:#2E3B57;--sw:#1E1E1E;--hr:#2B2220}
+.vz .p1{--sk:#E5B58C;--sh:#3E86C9;--pa:#4B4B4B;--hr:#6A4428}
+.vz .p2{--sk:#F3D2B3;--sh:#4FA36A;--pa:#3B3029;--hr:#1C1C1C}
+.vz .p3{--sk:#D6A27A;--sh:#E2B33C;--pa:#2A2A2A;--hr:#8A8A8A}
+.vz .body{fill:var(--sk)} .vz .shirt{fill:var(--sh)} .vz .pants{fill:var(--pa)} .vz .shoe{fill:var(--sw)} .vz .hairc{fill:var(--hr)}
+.vz .sl{stroke:var(--sh);stroke-linecap:round;fill:none} .vz .pl{stroke:var(--pa);stroke-linecap:round;fill:none}
+.vz .fig2{opacity:.9}
+.vz .silh .fig *{fill:#111;stroke:#111} .vz .silh .eyes{display:none}
+.vz.l-back .fgw .fig *{fill:#1d2125;stroke:#1d2125} .vz.l-back .fgw .eyes{display:none}
+.vz .bm-bg{fill:rgba(255,255,255,.85)} .vz .bm-dim{fill:rgba(20,24,28,.62)} .vz .bm-hi{fill:none;stroke:#FFC83D;stroke-width:1.4}
+.vz .bm-t{font:600 6px var(--f-ui);fill:#fff}
+@keyframes k-still{0%,20%{transform:translateY(0)}30%{transform:translateY(-9px)}40%,55%{transform:translateY(0)}65%{transform:translateY(-9px)}75%,100%{transform:translateY(0)}}
+.m-static .fgw{animation-name:k-still;animation-duration:2.4s}

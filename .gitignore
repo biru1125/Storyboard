@@ -1,0 +1,6 @@
+node_modules/
+dist/
+app/index.html
+dist_win.log
+.smoke/
+/*.png
